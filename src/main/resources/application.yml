@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: ${env.spring.datasource.url}
+    username: ${env.spring.datasource.username}
+    password: ${env.spring.datasource.password}
+    driverClassName: com.mysql.jdbc.Driver
+    maxActive: 50
+    maxIdle: 40
+    minIdle: 10
+    removeAbandoned: true
+    logAbandoned: true
+    removeAbandonedTimeout: 200
+    maxWait: 3000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: 'SELECT 1'
+    testOnBorrow: false
+    timeBetweenEvictionRunsMillis: 120000
+server:
+  port: ${env.server.port}
+application:
+  name: ${env.application.name}
+mybatis:
+  mapper-locations: classpath*:sql-mapper/*Mapper.xml
+  type-aliases-package: com.easysoft.project.entity
