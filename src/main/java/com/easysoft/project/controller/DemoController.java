@@ -2,8 +2,7 @@ package com.easysoft.project.controller;
 
 import com.easysoft.project.entity.User;
 import com.easysoft.project.service.DemoService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -22,16 +21,16 @@ import java.util.Date;
  * @review: zyp[2305658511@qq.com]/2019-04-22 17:30
  */
 @Controller
+@Slf4j
 public class DemoController {
-    private Logger logger = LoggerFactory.getLogger(DemoController.class);
     @Autowired
     DemoService demoService;
 
     @ResponseBody
     @GetMapping("/hello")
     public String hello(@RequestParam String nickName, @RequestParam String phoneNumber) {
-        logger.debug("debug");
-        logger.info("info");
+        log.debug("debug");
+        log.info("info");
         User user = new User();
         user.setNickName(nickName);
         user.setCreateTime(new Date());
